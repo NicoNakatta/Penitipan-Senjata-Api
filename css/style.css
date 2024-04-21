@@ -35,6 +35,17 @@ a.active,a:hover{
     background: rgb(255, 255, 255);
     transition: .5s;
 }
+.hapus{
+    background: transparent; 
+    border: transparent;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+.hapus:hover{
+    color: red;
+    font-weight: bold;
+}
 .opening{
     margin-top: 10px;
     height: 50%;
@@ -112,6 +123,7 @@ button.databaru{
     margin: 20px;
     padding: 10px;
     border-radius: 10px;
+    font-size: 15px;
 }
 th,td{
     padding: 10px;
