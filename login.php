@@ -14,7 +14,7 @@
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="#">Informasi Layanan</a></li>
                 <li><a href="#">Kontak</a></li>
-                <li><a class="active" href="login.html">Login</a></li>
+                <li><a class="active" href="login.php">Login</a></li>
             </ul>
                 </div>
             </nav>
@@ -22,14 +22,14 @@
         <main>
             <center>
             <div class="login">
-                <form action="">
+                <form action="admin.php" method="POST">
                 <h3 class="textlogin">LOGIN</h3>
                     <input class="input" type="text" name="ident" id="" placeholder="ID">
                     <input class="input" type="password" name="pas" id="" placeholder="Password">
-                    <button class="submit"type="submit">LOGIN</button>
+                    <button class="submit"type="submit" name="login" value="login">LOGIN</button>
                 </form>
                 <div class=reg>
-                    Tidak punya akun? <br><a href="register.html">register sekarang</a>
+                    Tidak punya akun? <br><a href="register.php">register sekarang</a>
                 </div>
             </div>
         </center>
