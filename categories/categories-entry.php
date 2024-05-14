@@ -11,7 +11,7 @@
         <nav>
             <div class="logo"><img src="../assets/logo.jpg" alt=""/></div>
             <ul>
-                <li><a href="categories.html">Back</a></li>
+                <li><a href="categories.php">Back</a></li>
             </ul>
         </nav>
         <center>

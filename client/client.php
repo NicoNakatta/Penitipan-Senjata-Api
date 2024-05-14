@@ -11,10 +11,10 @@
         <nav>
             <div class="logo"><img src="../assets/logo.jpg" alt=""/></div>
             <ul>
-                <li><a href="../admin.html">Beranda</a></li>
-                <li><a href="../categories/categories.html">Kategori</a></li>
-                <li><a class="active" href="client.html">Client</a></li>
-                <li><a href="#">Log Out</a></li>
+                <li><a href="../admin.php">Beranda</a></li>
+                <li><a href="../categories/categories.php">Kategori</a></li>
+                <li><a class="active" href="client.php">Client</a></li>
+                <li><a href="../logout.php">Log Out</a></li>
             </ul>
         </nav>
     <div class="tabel">
