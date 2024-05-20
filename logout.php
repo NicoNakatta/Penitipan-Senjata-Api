@@ -1,7 +1,6 @@
 <?php
 session_start();
-$ident = $_SESSION['ident'];
-if(isset($_SESSION['ident'])){
+if(isset($_SESSION['username'])){
     echo "<script>alert('Berhasil Logout')</script>";
     session_destroy();
     echo "<script>location.href='login.php'</script>";

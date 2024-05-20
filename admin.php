@@ -1,17 +1,10 @@
 <?php
 
-$ident = "Kuzu";
-$pas = "123";
-
 session_start();
+if($_SESSION['username'] == null) {
+    header('location:login.php');
+}
 
-if($_POST['ident']==$ident && $_POST['pas']==$pas){
-    $_SESSION['ident']=$ident;
-}
-else{
-    echo "<script>alert('username atau password tidak ditemukan atau salah!')</script>";
-    echo "<script>location.href='login.php'</script>";
-}
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +29,7 @@ else{
         <header>
         <center>
         <?php
-        echo "<h1 class='welcome'>Selamat Datang<br>".$_POST['ident']."<br>^_^</h1>";
+        echo "<h1 class='welcome'>Selamat Datang<br>".$_SESSION['username']."<br>^_^</h1>";
         ?>
         </center>
         </header>

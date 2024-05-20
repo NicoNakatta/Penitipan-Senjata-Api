@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+if($_SESSION['username'] == null) {
+    header('location:login.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,30 +28,46 @@
     <div class="tabel">
         <h3 class="kategori">KATEGORI</h3>
         <center>
-        <button class="databaru" onclick="location.href='categories-entry.html'"><b>Data Baru</b></button>
+        <button class="databaru" onclick="location.href='categories-entry.php'"><b>Data Baru</b></button>
         <table border="1" class="globel">
             <thead>
-            <tr>
-                <th>Jenis Keamanan</th>
-                <th>Harga</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>Maximum Security</td>
-                <td>5000000</td>
-                <td><a href="#" style="margin: 10px;">Edit</a>|<button onclick="Peringatan()" class="hapus">Hapus</button></td>
-                <script>
-                    function Peringatan(){
-                        let choose = confirm("Apakah Anda Yakin Ingin Menghapus?");
-                        if (choose == true){
-                            alert("Data Telah Dihapus");
-                        } else{
-                            alert("Data Tidak Jadi Dihapus");
-                        }
-                    }
-                </script>
-            </tr>
+            <thead>
+					<tr>
+						<th>Jenis Keamanan</th>
+						<th>Harga</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+					include '../koneksi.php';
+					$sql = "SELECT * FROM tb_kategori order by harga ASC";
+					$result = mysqli_query($koneksi, $sql);
+					if (mysqli_num_rows($result) == 0) {
+						echo "
+			   <tr>
+				<td colspan='5' align='center'>
+                           Data Kosong
+                        </td>
+			   </tr>
+				";
+					}
+					while ($data = mysqli_fetch_assoc($result)) {
+						echo "
+                    <tr>
+                      <td>$data[jenis_keamanan]</td>
+                      <td>$data[harga]</td>
+                      <td >
+                        <a class='btn-edit' href=categories-edit.php?id=$data[id_jk] style='margin:10px'>
+                               Edit
+                        </a> | 
+                        <a class='hapus' href=categories-delete.php?id=$data[id_jk] style='margin:10px'> Hapus </a>                   
+                      </td>
+                    </tr>
+                  ";
+					}
+					?>
+				</tbody>
         </table>
     </div>
     </center>

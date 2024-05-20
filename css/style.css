@@ -56,7 +56,7 @@ a.active,a:hover{
 h3.textlogin{
     margin: 5px;
 }
-.login{
+.login,.conf{
     display: flex;
     flex-direction: column;
     align-items: center;

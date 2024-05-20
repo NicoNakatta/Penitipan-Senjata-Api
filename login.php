@@ -22,10 +22,10 @@
         <main>
             <center>
             <div class="login">
-                <form action="admin.php" method="POST">
+                <form action="login-proses.php" method="POST">
                 <h3 class="textlogin">LOGIN</h3>
-                    <input class="input" type="text" name="ident" id="" placeholder="ID">
-                    <input class="input" type="password" name="pas" id="" placeholder="Password">
+                    <input class="input" type="text" name="username" id="" placeholder="ID">
+                    <input class="input" type="password" name="password" id="" placeholder="Password">
                     <button class="submit"type="submit" name="login" value="login">LOGIN</button>
                 </form>
                 <div class=reg>

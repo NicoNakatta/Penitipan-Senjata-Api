@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if ($_SESSION['username'] == null) {
+        header('location:../login.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,11 +23,11 @@
         <center>
         <main>
             <div class="login">
-                <form action="">
+                <form action="categories-proses.php" method="POST">
                     <h3 class="textlogin">Masukkan Kategori Baru</h3>
-                    <input class="input" type="text" name="Kategori" id="" placeholder="Nama Keamanan">
-                    <input class="input" type="number" name="Kategori" id="" placeholder="Harga Keamanan">
-                    <button class="submit"type="submit">Submit</button>
+                    <input class="input" type="text" name="categories" id="" placeholder="Nama Keamanan">
+                    <input class="input" type="number" name="price" id="" placeholder="Harga Keamanan">
+                    <button class="submit"type="submit" name="simpan">Submit</button>
                 </form>
 
             </div>
