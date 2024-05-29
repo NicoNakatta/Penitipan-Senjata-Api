@@ -20,35 +20,48 @@
     <div class="tabel">
         <h3 class="kategori">Client</h3>
         <center>
-        <button class="databaru" onclick="location.href='client-entry.html'"><b>Data Baru</b></button>
+        <button class="databaru" onclick="location.href='client-entry.php'"><b>Data Baru</b></button>
+        <button class="databaru" onclick="location.href='client-cetak.php'"><b>Cetak</b></button>
         <table border="1" class="globel">
-            <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Jenis Keamanan</th>
-                <th>Harga</th>
-                <th>Tanggal</th>
-                <th>Action</th>
-            </tr>
+        <thead>
+               <tr>
+                  <th>Nama</th>
+                  <th>Kategori</th>
+                  <th>Harga</th>
+                  <th>Photo</th>
+                  <th>Tanggal</th>
+               </tr>
             </thead>
-            <tr>
-                <td>Theodore</td>
-                <td>Maximum Security</td>
-                <td>5000000</td>
-                <td>22-1-2024</td>
-                <td><a href="#">Edit</a>|<button onclick="Peringatan()" class="hapus">Hapus</button></td>
-                <script>
-                    function Peringatan(){
-                        let choose = confirm("Apakah Anda Yakin Ingin Menghapus?");
-                        if (choose == true){
-                            alert("Data Telah Dihapus");
-                        } else{
-                            alert("Data Tidak Jadi Dihapus");
-                        }
-                    }
-                </script>
-            </tr>
-        </table>
+            <tbody>
+               <?php
+               include '../koneksi.php';
+               $sql = "SELECT * FROM tb_client INNER JOIN tb_kategori 
+               ON tb_client.id_jk = tb_kategori.id_jk";
+               $result = mysqli_query($koneksi, $sql);
+               if (mysqli_num_rows($result) == 0) {
+                  echo "
+                  <td colspan='5' align='center'>
+                           Data Kosong
+                        </td>
+               ";
+               } else {
+                while ($data = mysqli_fetch_assoc($result)) {
+                    echo "
+                <tr>
+                  <td>$data[nama_client]</td>
+                  <td>$data[jenis_keamanan]</td>
+                  <td>$data[harga]</td>
+                  <td>
+                  <img src='../img_client/$data[gambar]' width='100px'>
+                  </td>
+                  <td>$data[tanggal]</td>
+                </tr>
+              ";
+                  }
+               }
+               ?>
+            </tbody>
+         </table>
     </div>
     </center>
     </body>

@@ -16,20 +16,33 @@
         </nav>
         <center>
         <main>
-            <div class="login">
-                <form action="">
-                    <h3 class="textlogin">Masukkan Kategori Baru</h3>
-                    <input class="input" type="text" name="Kategori" id="" placeholder="Nama Client">
+            <div class="login" style="height : 300px">
+                <form action="client-proses.php" method="post" enctype="multipart/form-data">
+                    <h3 class="textlogin">Masukkan Client Baru</h3>
+                    <input class="input" type="text" name="client" id="" placeholder="Nama Client">
                     <br>
                     <select name="kategori" id="kategori">
-                        <option value="">Pilih Kategori Keamanan</option>
+                    <?php
+					include '../koneksi.php';
+					$sql = "SELECT * FROM tb_kategori";
+					$result = mysqli_query($koneksi, $sql);
+					if (mysqli_num_rows($result) == 0) {
+						echo "
+                            ";
+                                }
+                                while ($data = mysqli_fetch_assoc($result)) {
+                                    echo "
+                                    <option value='$data[id_jk]'>$data[jenis_keamanan]--$data[harga]</option>
+                            ";
+					}
+					?>
                     </select>
                     <br>
-                    <input class="input" type="date" name="Kategori" id="" placeholder="Tanggal Pelayanan">
+                    <input class="input" type="date" name="date" id="">
                     <br>
-                    <button class="submit"type="submit">Submit</button>
+                    <input class="input" type="file" name="photo" id="" placeholder="">
+                    <button class="submit"type="submit" name="simpan">Submit</button>
                 </form>
-
             </div>
         </main>
         </center>

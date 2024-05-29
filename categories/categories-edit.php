@@ -38,7 +38,7 @@
         <center>
         <main>
             <div class="login">
-            <h3 class="textlogin">Masukkan Kategori Baru</h3>
+            <h3 class="textlogin">Masukkan Data Kategori Baru</h3>
                 <form 
                 action="categories-proses.php"
                 method="post"

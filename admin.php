@@ -31,6 +31,20 @@ if($_SESSION['username'] == null) {
         <?php
         echo "<h1 class='welcome'>Selamat Datang<br>".$_SESSION['username']."<br>^_^</h1>";
         ?>
+        <br>
+        <?php
+               include 'koneksi.php';
+               $sql = "SELECT * FROM tb_client INNER JOIN tb_kategori 
+               ON tb_client.id_jk = tb_kategori.id_jk;";
+               $result = mysqli_query($koneksi, $sql);
+               if (mysqli_num_rows($result) == 0) {
+                  echo "
+                  <h1 class='welcome'>Tidak Ada Client <br>^_^</h1> ";
+               } else {
+                 $counter = mysqli_num_rows($result);
+                 echo "<h1 class='welcome'>Anda Memiliki<br>".$counter." Client <br>^_^</h1>";
+                  }
+               ?>
         </center>
         </header>
 </body>
